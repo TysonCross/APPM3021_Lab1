@@ -3,10 +3,13 @@
 clc
 clear all
 
-rows = randi(6)+1;
-A = magic(rows)
-rows = length(A);
-B = randi(5,rows,rows)
+A = [8, 1, 6;...
+     3, 5, 7;...
+     4, 9, 2]
+     
+B = [5, 2, 1;...
+     1, 4, 3;...
+     3, 4, 3]
 
 solution = gaussMultipleSystems(A,B)                % Here is the function
 

@@ -3,9 +3,9 @@ function x = backSubstitution(A,b)
 %   in a upper triangular matrix (forward eliminated system of equations)
 
 
-if ~isSolvable(A)                                   % check is matrix is square and non-singular
-    error(strcat('Matrix is not solvable'))
-end
+% if ~isSolvable(A)                                   % check is matrix is square and non-singular
+%     error(strcat('Matrix is not solvable'))
+% end
 
 n = length(b);
 x = zeros(n,1);                                     % initialise solution vector

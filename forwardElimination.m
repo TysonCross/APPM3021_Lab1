@@ -13,7 +13,6 @@ for i = 1:(n-1)                                     % for each row
             error('Naive Gaussian does not support pivoting. Unable to solve;');
         else factor = A(j,i) / A(i,i);              % find the factor
         end
-
         for k = i:n                                 % finish rest of entries in row
             A(j,k)=A(j,k)-(factor*A(i,k));          % set entry in A
         end

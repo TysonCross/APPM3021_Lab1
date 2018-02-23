@@ -2,22 +2,28 @@ function [X,y] = backElimination(A,b)
 %   "Back" elimination method, takes a Matrix and vector
 %   Puts Matrix A in upper, reverse triangular form
 
-if ~isSolvable(A)                                   % check is matrix is square and non-singular
+if ~isSolvable(A)                                 % check is matrix is square and non-singular
     error(strcat('Matrix is not solvable'))
 end
 
-n = length(b);
-for row = n:-1:2                                    % for each row
-    for i = n:-1:(row+1)                            % for each pivot along the main diagonal
-        if A(row,row) ~= 0
-            m = A(i,row) / A(row,row);              % find the factor
+n = length(A);
+entry = 0;
+for i = n:-1:2                                    % for each row
+    entry = entry + 1;
+    for j = (i-1):-1:1                                 % row above
+        if A(i,i) == 0
+            error('Naive Gaussian does not support pivoting. Unable to solve;');
+        else factor = A(j,i) / A(i,i);                  % find the factor
         end
-        for j = n:-1:row                            % finish rest of entries in row
-            A(i,j)=A(i,j)-(m*A(row,j));             % set entry in A
+        for k = entry:n                           % finish rest of entries in row
+            A(j,k)=A(j,k)-(factor*A(i,k));             % set entry in A
         end
-        b(i) = b(i) - ( m .* b(row));               % set entry in b
+        b(j) = b(j) - ( factor .* b(i));               % set entry in b
 
     end
-X = A;                                              % Output assignments
+X = A;                                            % Output assignments
 y = b;
 end
+
+
+

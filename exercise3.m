@@ -3,10 +3,11 @@
 clc
 clear all
 
-rows = randi(4)+1;
-A = magic(rows)
-rows = length(A);
-b = randi(10,rows,1)
+A = [8, 1, 6;...
+     3, 5, 7;...
+     4, 9, 2]
+
+b = [3;9;5]
 
 [L, U] = LUFactorization(A)                         % Here is the function
 
@@ -22,8 +23,8 @@ end
 % Ax=b , A=LU, so Ax=LUx=b
 % Ux=y <--- Ly=b
 
-Y = gaussElimination(L,b);
-solution = gaussElimination(U,Y)
+y = gaussElimination(L,b);
+solution = backSubstitution(U,y)
 
 % Output and check
 check = A\b;

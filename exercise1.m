@@ -8,7 +8,7 @@ A = [ 1 1 1 2;...
      -1 1 3 1;...
       1 0 2 4]
   
-b = [2;0;3;2]
+b = [2; 0; 3; 2]
 
 solution = gaussElimination(A,b)                    % Here is the function
 
