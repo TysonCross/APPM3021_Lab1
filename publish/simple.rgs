@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stylesheet_registry xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="2.0">
+   <stylesheet id="simple" transformtype="fo"><!--22 Feb 2018 6:46:52 PM-->
+      <name>Simple Print</name>
+      <description>Suppresses title page, table of contents, list of titles</description>
+      <filename>$approot/sys/namespace/docbook/v4/xsl/fo/docbook_rptgen.xsl</filename>
+      <xsl_code>
+         <xsl:param name="section.autolabel" select="0"/>
+         <xsl:param name="component.label.includes.part.label" select="0"/>
+         <xsl:param name="toc.section.depth">0</xsl:param>
+         <xsl:template name="book.titlepage.recto"><!--<?xml version="1.0" encoding="utf-8"?>
+<tp_format mcos-class="Rptgen.TitlePage.PDF.Recto.Format">
+   <tp_layout class="Rptgen.TitlePage.LayoutGrid" height="" height-unit="in" ncols="1" nrows="16" width-unit="in"/>
+   <tp_include_elements>
+      <tp_element colnum="1" color="black" colspan="1" font-size="24.8832pt" font-style="normal" font-weight="bold" halign="center" mcos-class="Rptgen.TitlePage.PDF.Recto.Subtitle" name="subtitle" rownum="2" rowspan="1" side="recto"/>
+      <tp_element colnum="1" color="black" colspan="1" font-size="17.28pt" font-style="normal" font-weight="bold" halign="center" mcos-class="Rptgen.TitlePage.PDF.Recto.Author" name="author" rownum="4" rowspan="1" side="recto"/>
+   </tp_include_elements>
+   <tp_exclude_elements>
+      <tp_element colnum="1" color="black" colspan="1" font-size="12pt" font-style="normal" font-weight="bold" halign="center" mcos-class="Rptgen.TitlePage.PDF.Recto.Abstract" name="abstract" rownum="8" rowspan="1" side="recto"/>
+      <tp_element colnum="1" color="black" colspan="1" font-size="24.8832pt" font-style="normal" font-weight="bold" halign="center" mcos-class="Rptgen.TitlePage.PDF.Recto.Title" name="title" rownum="1" rowspan="1" side="recto"/>
+      <tp_element colnum="1" color="black" colspan="1" font-size="12" font-style="normal" font-weight="bold" halign="center" mcos-class="Rptgen.TitlePage.PDF.Recto.LegalNotice" name="legalnotice" rownum="7" rowspan="1" side="recto"/>
+      <tp_element colnum="1" color="black" colspan="1" font-size="8pt" font-style="normal" font-weight="bold" halign="center" mcos-class="Rptgen.TitlePage.PDF.Recto.PubDate" name="pubdate" rownum="6" rowspan="1" side="recto"/>
+      <tp_element colnum="1" color="black" colspan="1" font-size="8pt" font-style="normal" font-weight="bold" halign="center" mcos-class="Rptgen.TitlePage.PDF.Recto.Copyright" name="copyright" rownum="5" rowspan="1" side="recto"/>
+      <tp_element colnum="1" colspan="1" mcos-class="Rptgen.TitlePage.PDF.Recto.Image" name="image" rownum="3" rowspan="1" side="recto"/>
+   </tp_exclude_elements>
+</tp_format>-->
+            <fo:block block-progression-dimension="auto">
+               <fo:table block-progression-dimension="auto" inline-progression-dimension="100%" table-layout="fixed">
+                  <fo:table-column column-number="1" column-width="100%"/>
+                  <fo:table-body>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <xsl:choose>
+                              <xsl:when test="bookinfo/subtitle">
+                                 <fo:block color="black" font-family="{$title.fontset}" font-size="24.8832pt" font-weight="bold" linefeed-treatment="preserve" text-align="center" xsl:use-attribute-sets="set.titlepage.recto.style">
+                                    <xsl:if test="1">
+                                       <xsl:value-of select="bookinfo/subtitle"/>
+                                    </xsl:if>
+                                 </fo:block>
+                              </xsl:when>
+                           </xsl:choose>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <xsl:choose>
+                              <xsl:when test="bookinfo/author/firstname">
+                                 <fo:block color="black" font-family="{$title.fontset}" font-size="17.28pt" font-weight="bold" linefeed-treatment="preserve" text-align="center" xsl:use-attribute-sets="set.titlepage.recto.style">
+                                    <xsl:if test="1">
+                                       <xsl:value-of select="bookinfo/author/firstname"/>
+                                    </xsl:if>
+                                 </fo:block>
+                              </xsl:when>
+                           </xsl:choose>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                     <fo:table-row height="NaNin">
+                        <fo:table-cell>
+                           <fo:block/>
+                        </fo:table-cell>
+                     </fo:table-row>
+                  </fo:table-body>
+               </fo:table>
+            </fo:block>
+         </xsl:template>
+         <xsl:param name="paper.type">A4</xsl:param>
+         <xsl:param name="generate.toc">
+book example,equation
+chapter example,equation
+section nop
+</xsl:param>
+         <xsl:attribute-set name="section.level5.properties">
+            <xsl:attribute name="break-before">page</xsl:attribute>
+         </xsl:attribute-set>
+         <xsl:attribute-set name="section.level4.properties">
+            <xsl:attribute name="break-before">page</xsl:attribute>
+         </xsl:attribute-set>
+         <xsl:attribute-set name="section.level3.properties">
+            <xsl:attribute name="break-before">page</xsl:attribute>
+         </xsl:attribute-set>
+         <xsl:attribute-set name="section.level1.properties">
+            <xsl:attribute name="break-before">page</xsl:attribute>
+         </xsl:attribute-set>
+         <xsl:attribute-set name="section.level2.properties">
+            <xsl:attribute name="break-before">page</xsl:attribute>
+         </xsl:attribute-set>
+         <xsl:variable name="show.comments" select="1"/>
+         <xsl:attribute-set name="xref.properties">
+            <xsl:attribute name="color">
+               <xsl:choose>
+                  <xsl:when test="self::ulink">blue</xsl:when>
+                  <xsl:otherwise>inherit</xsl:otherwise>
+               </xsl:choose>
+            </xsl:attribute>
+         </xsl:attribute-set> 
+      </xsl_code>
+   </stylesheet>
+</stylesheet_registry>

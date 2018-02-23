@@ -1,0 +1,23 @@
+% APPM3021 Lab 1, Question 1c 
+
+clc
+clear all
+
+A = [ 1, -1,  2, -1;...
+      2, -2,  3, -3;...
+      1,  1,  1,  0;...
+      1, -1,  4,  3]
+
+B = [ -8, -10, -100;...
+     -20, -20, -250;...
+      -2,  -2,  -25;...
+       4,   8,   80]
+
+solution = gaussMultipleSystems(A,B)                % Here is the function
+
+% Output and check
+check = A\B
+if ~isequal(solution,check)
+    warning(['Solution is inaccurate, by a max difference of ',...
+        num2str(max(max(abs(solution-check))))])
+end
