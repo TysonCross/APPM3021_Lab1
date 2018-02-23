@@ -3,7 +3,7 @@
 clc
 clear all
 
-rows = randi(8)+1;
+rows = randi(4)+1;
 A = magic(rows)
 rows = length(A);
 b = randi(10,rows,1)

@@ -14,8 +14,8 @@ b = [3; -1; 2]
 solution = gaussEliminationAltered(A,b)
                                                                 
 % Output and check
-check = A\b;
-if ~isequal(solution,check)
+correct_solution = A\b
+if ~isequal(solution,correct_solution)
     warning(['Solution is inaccurate, by a max difference of ',...
-        num2str(max(max(abs(solution-check))))])
+        num2str(max(max(abs(solution-correct_solution))))])
 end

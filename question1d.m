@@ -13,11 +13,16 @@ B = [ -8, -10, -100;...
       -2,  -2,  -25;...
        4,   8,   80]
 
-[L, U] = LUFactorization(A)                         % Here is the function
+[n,m] = size(B);
+Y = zeros(n,m);
+solution = Y;
+
+
+[L, U] = LUFactorization(A)
 
 % Check the function works
 lu_check = L*U;
-if A ~= lu_check
+if ~isequal(A,lu_check)
     warning(['Function is inaccurate, by a max difference of ',...
         num2str(max(max(abs(A - lu_check))))])
     disp(' ')
@@ -27,11 +32,15 @@ end
 % Ax=b , A=LU, so AX=LUX=B
 % UX=Y <--- LY=b
 
-Y = gaussMultipleSystems(L,B);
-solution = gaussMultipleSystems(U,Y);
+for i = 1:m
+Y(:,i) = backSubstitution(L,B(:,i));
+solution(:,i) = backSubstitution(U,Y(:,i));
+end
+
+
 
 % Output and check
-check = A\B;
+check = A\B
 if ~isequal(solution,check)
     warning(['Solution is inaccurate, by a max difference of ',...
         num2str(max(max(abs(solution-check))))])

@@ -7,10 +7,10 @@ if ~isSolvable(A)                                   % check is matrix is square 
 end
 
 n = length(b);
-for row = n:-1:2                                   % for each row
+for row = n:-1:2                                    % for each row
     for i = n:-1:(row+1)                            % for each pivot along the main diagonal
         if A(row,row) ~= 0
-            m = A(i,row) / A(row/row);              % find the factor
+            m = A(i,row) / A(row,row);              % find the factor
         end
         for j = n:-1:row                            % finish rest of entries in row
             A(i,j)=A(i,j)-(m*A(row,j));             % set entry in A

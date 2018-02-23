@@ -10,13 +10,13 @@ A = [ 2,  1, -1,  2;...
 
 b = [5; 9; 4; 2]
 
-% Gauss Elimination w/o partial pivoting
-% Forward elimination and back substitution
+% Gauss Elimination without partial pivoting
+% Using forward elimination and back substitution
 solution = gaussElimination(A,b)
                                                                 
 % Output and check
-check = A\b;
-if ~isequal(solution,check)
+correct_solution = A\b;
+if ~isequal(solution,correct_solution)
     warning(['Solution is inaccurate, by a max difference of ',...
-        num2str(max(max(abs(solution-check))))])
+        num2str(max(max(abs(solution-correct_solution))))])
 end

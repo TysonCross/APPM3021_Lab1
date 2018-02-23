@@ -1,8 +1,4 @@
 function x = forwardSubstitution(A,b)
-% Tyson Cross
-% Student 1239448
-% APPM3021 Exercise 1 
-%
 %   Solves for variables and substitutes them (downwards from the top)
 %   in a upper triangular matrix (forward eliminated system of equations)
 

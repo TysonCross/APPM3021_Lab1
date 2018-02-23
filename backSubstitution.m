@@ -9,8 +9,9 @@ end
 
 n = length(b);
 x = zeros(n,1);                                     % initialise solution vector
-if A(n,n) ~= 0
-    x(n) = b(n) / A(n,n);                           % solution to variable in bottom row
+if A(n,n) == 0
+    error('Divide by zero: unable to solve.');
+    else x(n) = b(n) / A(n,n);                      % solution to variable in bottom row
 end
 
 for i = (n-1):-1:1                                  % work ascending from the last row up

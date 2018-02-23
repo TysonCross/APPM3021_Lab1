@@ -16,7 +16,7 @@ B = [ -8, -10, -100;...
 solution = gaussMultipleSystems(A,B)                % Here is the function
 
 % Output and check
-check = A\B
+check = A\B;
 if ~isequal(solution,check)
     warning(['Solution is inaccurate, by a max difference of ',...
         num2str(max(max(abs(solution-check))))])

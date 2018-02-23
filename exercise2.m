@@ -3,16 +3,16 @@
 clc
 clear all
 
-rows = randi(8)+1;
+rows = randi(6)+1;
 A = magic(rows)
 rows = length(A);
-B = randi(10,rows,rows)
+B = randi(5,rows,rows)
 
 solution = gaussMultipleSystems(A,B)                % Here is the function
 
 % Output and check
-check = A\B;
-if ~isequal(solution,check)
+correct_solution = A\B;
+if ~isequal(solution,correct_solution)
     warning(['Solution is inaccurate, by a max difference of ',...
-        num2str(max(max(abs(solution-check))))])
+        num2str(max(max(abs(solution-correct_solution))))])
 end

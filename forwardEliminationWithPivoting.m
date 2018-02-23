@@ -8,22 +8,23 @@ if ~isSolvable(A)                                   % check is matrix is square 
 end
 
 n = length(b);
-for row = 1:(n-1)                                   % for each row
-    for pivot = (row+1):n                           % check for need to do partial-pivoting 
-        if (A(row,row)<A(pivot,row))                % pivot is smaller than current entry
-            A = swapRow(A,row,pivot);               % swap rows in A
-            b = swapRow(b,row,pivot);               % swap row in b
+for i = 1:(n-1)                                   % for each row
+    for p = (i+1):n                               % check for need to do partial-pivoting
+        if (A(i,i)<A(p,i))                        % pivot is smaller than current entry
+            A = swapRow(A,i,p);                   % swap rows in A
+            b = swapRow(b,i,p);                   % swap row in b
         end
     end
-    for i = (row+1):n                               % for each pivot along the main diagonal
-        if A(row,row) ~= 0
-            m = A(i,row) / A(row/row);              % find the factor
-        else m = 1;
+    for j = (i+1):n                               % for each pivot along the main diagonal
+        if A(i,i) == 0
+            error('Divide by zero. Unable to solve;');
+        else m = A(j,i) / A(i,i);                 % find the factor
         end
-        for j = row:n                               % finish rest of entries in row
-            A(i,j)=A(i,j)-(m*A(row,j));             % set entry in A
+
+        for k = i:n                               % finish rest of entries in row
+            A(j,k)=A(j,k)-(m*A(i,k));             % set entry in A
         end
-        b(i) = b(i) - ( m .* b(row));               % set entry in b
+        b(j) = b(j) - ( m .* b(i));               % set entry in b
     end
 end
 X = A;                                              % Output assignments
